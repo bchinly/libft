@@ -21,7 +21,7 @@ int	count_words(char *str)
 	{
 		if (char_is_separator(str[i + 1]) == 1
 		&& char_is_separator(str[i]) == 0)
-			words ++;
+			words++;
 		i++;
 	}
 	return (words);
@@ -76,7 +76,7 @@ char	**ft_split(char *str)
 	write_split(split, str);
 	return (split);
 }
-
+/*
 void	ft_putstr(char *str)
 {
 	int i;
@@ -111,4 +111,4 @@ int	main(int argc, char **argv)
 	}
 	write (1, "\n", 1);
 	return (0);
-}
+}*
