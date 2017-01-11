@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 14:16:03 by bchin             #+#    #+#             */
-/*   Updated: 2017/01/10 23:45:01 by bchin            ###   ########.fr       */
+/*   Created: 2017/01/11 02:15:48 by bchin             #+#    #+#             */
+/*   Updated: 2017/01/11 02:19:24 by bchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(unsigned char *s1, unsigned char *s2)
+int		ft_isdigit(int c);
+int		ft_isalpha(int c);
+
+int		ft_isalnum(int c)
 {
-	while ((*s1 == *s2)
-		&& (*s1 != '\0' || *s2 != '\0'))
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	if (ft_isdigit(c) == 1)
+		return (1);
+	if (ft_isalpha(c) == 1)
+		return (1);
+	return (0);
 }

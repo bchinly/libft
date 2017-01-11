@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 14:16:03 by bchin             #+#    #+#             */
-/*   Updated: 2017/01/10 23:45:01 by bchin            ###   ########.fr       */
+/*   Created: 2017/01/11 00:39:40 by bchin             #+#    #+#             */
+/*   Updated: 2017/01/11 01:28:41 by bchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(unsigned char *s1, unsigned char *s2)
+#include <string.h>
+
+void	*ft_memmove(void *dst, void *src, size_t len)
 {
-	while ((*s1 == *s2)
-		&& (*s1 != '\0' || *s2 != '\0'))
+	char	*d;
+	char	*s;
+
+	d = dst;
+	s = src;
+	if (s == d)
+		return (d);
+	if (s < d)
 	{
-		s1++;
-		s2++;
+		d = &d[len-1];
+		s = &s[len-1];
+		while (len > 0)
+		{
+			*d-- = *s--;
+			len--;
+		}
 	}
-	return (*s1 - *s2);
+	else while (len > 0)
+	{
+		*d++ = *s++;
+		len--;
+	}
+	return (dst);
 }

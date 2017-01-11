@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 14:16:03 by bchin             #+#    #+#             */
-/*   Updated: 2017/01/10 23:45:01 by bchin            ###   ########.fr       */
+/*   Created: 2017/01/11 04:12:30 by bchin             #+#    #+#             */
+/*   Updated: 2017/01/11 04:18:10 by bchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(unsigned char *s1, unsigned char *s2)
+#include <string.h>
+#include <stdlib.h>
+
+void	*ft_memset(void *b, int c, size_t len);
+
+char	*ft_strnew(size_t size)
 {
-	while ((*s1 == *s2)
-		&& (*s1 != '\0' || *s2 != '\0'))
+	char *str;
+
+	str = (char*)malloc(sizeof(char) * size + 1);
+	if (str)
 	{
-		s1++;
-		s2++;
+		ft_memset(str, 0, size + 1);
 	}
-	return (*s1 - *s2);
+	return (str);
 }

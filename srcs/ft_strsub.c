@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 14:16:03 by bchin             #+#    #+#             */
-/*   Updated: 2017/01/10 23:45:01 by bchin            ###   ########.fr       */
+/*   Created: 2017/01/11 05:16:53 by bchin             #+#    #+#             */
+/*   Updated: 2017/01/11 05:26:54 by bchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(unsigned char *s1, unsigned char *s2)
+#include <stdlib.h>
+
+char	*ft_strnew(size_t size);
+
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	while ((*s1 == *s2)
-		&& (*s1 != '\0' || *s2 != '\0'))
+	char			*str;
+	unsigned int	i;
+
+	str = (char*)malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		s1++;
-		s2++;
+		str[i] = s[start + i];
+		i++;
 	}
-	return (*s1 - *s2);
+	str[i] = '\0';
+	return (str);
 }

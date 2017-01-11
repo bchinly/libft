@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 14:16:03 by bchin             #+#    #+#             */
-/*   Updated: 2017/01/10 23:45:01 by bchin            ###   ########.fr       */
+/*   Created: 2016/11/01 17:57:05 by bchin             #+#    #+#             */
+/*   Updated: 2017/01/05 22:25:22 by bchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(unsigned char *s1, unsigned char *s2)
+#include <string.h>
+
+char	*ft_strncpy(char *dest, char *src, size_t len)
 {
-	while ((*s1 == *s2)
-		&& (*s1 != '\0' || *s2 != '\0'))
+	int i;
+
+	i = 0;
+	while (len > 0 && src[i] != '\0')
 	{
-		s1++;
-		s2++;
+		dest[i] = src[i];
+		i++;
+		len--;
 	}
-	return (*s1 - *s2);
+	while (len > 0)
+	{
+		dest[i] = '\0';
+		i++;
+		len--;
+	}
+	return (dest);
 }

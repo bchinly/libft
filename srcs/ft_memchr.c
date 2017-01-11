@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 14:16:03 by bchin             #+#    #+#             */
-/*   Updated: 2017/01/10 23:45:01 by bchin            ###   ########.fr       */
+/*   Created: 2017/01/11 01:29:25 by bchin             #+#    #+#             */
+/*   Updated: 2017/01/11 01:40:02 by bchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(unsigned char *s1, unsigned char *s2)
+#include <string.h>
+
+int		ft_strlen(char *str);
+
+void	*ft_memchr(void *s, int c, size_t n)
 {
-	while ((*s1 == *s2)
-		&& (*s1 != '\0' || *s2 != '\0'))
+	char *ptr;
+	int i;
+
+	ptr = s;
+	i = 0;
+	while (ptr[i] != '\0' && n > 0)
 	{
-		s1++;
-		s2++;
+		if (ptr[i] == c)
+			return (&s[i]);
+		i++;
+		n--;
 	}
-	return (*s1 - *s2);
+	if (c == '\0' && ft_strlen(ptr) <= n)
+	{
+		i = ft_strlen(ptr);
+			return (&s[i]);
+	}
+	return (NULL);
 }

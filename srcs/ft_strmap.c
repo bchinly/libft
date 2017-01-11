@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 14:16:03 by bchin             #+#    #+#             */
-/*   Updated: 2017/01/10 23:45:01 by bchin            ###   ########.fr       */
+/*   Created: 2017/01/11 04:30:42 by bchin             #+#    #+#             */
+/*   Updated: 2017/01/11 06:01:59 by bchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(unsigned char *s1, unsigned char *s2)
+#include <stdlib.h>
+
+char	*ft_strdup(char const *src);
+
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	while ((*s1 == *s2)
-		&& (*s1 != '\0' || *s2 != '\0'))
+	char			*str;
+	unsigned int	i;
+
+	str = ft_strdup((char const *)s);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (str[i] != '\0')
 	{
-		s1++;
-		s2++;
+		str[i] = f(s[i]);
+		i++;
 	}
-	return (*s1 - *s2);
+	return (str);
 }

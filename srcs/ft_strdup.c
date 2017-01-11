@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 14:16:03 by bchin             #+#    #+#             */
-/*   Updated: 2017/01/10 23:45:01 by bchin            ###   ########.fr       */
+/*   Created: 2016/11/17 15:32:05 by bchin             #+#    #+#             */
+/*   Updated: 2017/01/11 05:07:21 by bchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(unsigned char *s1, unsigned char *s2)
+#include <stdlib.h>
+
+void	ft_strcpy(char *dest, char *src);
+
+int		ft_strlen(char *str);
+
+char		*ft_strdup(char *src)
 {
-	while ((*s1 == *s2)
-		&& (*s1 != '\0' || *s2 != '\0'))
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	char *dest;
+
+	dest = (char*)malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (dest)
+		ft_strcpy(dest, src);
+	return (dest);
 }
+
