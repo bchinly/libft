@@ -46,6 +46,7 @@ char				*ft_strnstr(char const *big, char const *little,
 int					ft_strcmp(char const *s1, char const *s2);
 int					ft_strncmp(char const *s1, char const *s2, size_t n);
 void				ft_swap(int *a, int *b);
+int					get_next_line(const int fd, char **line);
 int					ft_atoi(char const *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
